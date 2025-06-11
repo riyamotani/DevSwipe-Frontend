@@ -2,12 +2,15 @@ import { useState } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("")
   const baseUrl = import.meta.env.VITE_BASE_URL;
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const handleLogin = async () => {
     try {
@@ -20,8 +23,9 @@ const Login = () => {
         { withCredentials: true }
       );
       dispatch(addUser(res.data))
-    } catch (error) {
-      console.log("Error: ", error);
+      navigate("/feed")
+    } catch (err) {
+      setError(err.response.data)
     }
   };
 
@@ -47,6 +51,7 @@ const Login = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+        <p className="text-red-400 mt-2">{error}</p>
 
         <button className="btn bg-base-100 mt-4" onClick={handleLogin}>
           Login
