@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { addFeed } from "../utils/feedSlice";
 import { useEffect } from "react";
 import UserCard from "./UserCard";
+import { baseUrl } from "../utils/constants";
 
 const Feed = () => {
-    const baseUrl = import.meta.env.VITE_BASE_URL;
     const dispatch = useDispatch();
     const feed = useSelector((store) => store.feed)
 

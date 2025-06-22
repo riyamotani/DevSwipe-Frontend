@@ -3,12 +3,12 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
 import { useNavigate } from "react-router-dom";
+import { baseUrl } from "../utils/constants";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const baseUrl = import.meta.env.VITE_BASE_URL;
   const dispatch = useDispatch();
   const navigate = useNavigate();
 

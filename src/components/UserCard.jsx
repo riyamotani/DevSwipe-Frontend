@@ -1,13 +1,13 @@
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { removeUserFromFeed } from "../utils/feedSlice";
+import { baseUrl } from "../utils/constants";
 
 const UserCard = ({ user }) => {
   const { _id, firstName, lastName, photoUrl, age, gender, about, skills } =
     user;
 
   const dispatch = useDispatch();
-  const baseUrl = import.meta.env.VITE_BASE_URL;
 
   const handleSendRequest = async (status, userId) => {
     try {

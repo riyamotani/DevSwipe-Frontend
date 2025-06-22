@@ -5,9 +5,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import axios from "axios";
 import { addUser } from "../utils/userSlice";
+import { baseUrl } from "../utils/constants";
 
 const Body = () => {
-  const baseUrl = import.meta.env.VITE_BASE_URL;
   const user = useSelector((store) => store.user);
   const navigate = useNavigate();
   const dispatch = useDispatch();

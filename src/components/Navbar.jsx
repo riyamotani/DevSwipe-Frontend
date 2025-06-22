@@ -2,10 +2,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { removeUser } from "../utils/userSlice";
+import { baseUrl } from "../utils/constants";
 
 const Navbar = () => {
   const user = useSelector((store) => store.user);
-  const baseUrl = import.meta.env.VITE_BASE_URL;
   const dispatch = useDispatch();
   const navigate = useNavigate();
 

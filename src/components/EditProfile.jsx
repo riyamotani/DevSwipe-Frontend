@@ -3,6 +3,7 @@ import UserCard from "./UserCard";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { baseUrl } from "../utils/constants";
 
 const EditProfile = ({ user }) => {
   const [firstName, setFirstname] = useState(user.firstName);
@@ -14,7 +15,6 @@ const EditProfile = ({ user }) => {
   const [skills, setSkills] = useState(user.skills || []);
   const [error, setError] = useState("");
   const [showToast, setShowToast] = useState(false);
-  const baseUrl = import.meta.env.VITE_BASE_URL;
   const dispatch = useDispatch();
 
   const saveProfile = async () => {

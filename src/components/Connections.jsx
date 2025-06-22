@@ -2,11 +2,11 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addConnections } from "../utils/connectionSlice.js";
+import { baseUrl } from "../utils/constants";
 
 const Connections = () => {
   const connections = useSelector((store) => store.connections);
   const dispatch = useDispatch();
-  const baseUrl = import.meta.env.VITE_BASE_URL;
   const fetchConnections = async () => {
     try {
       const res = await axios.get(baseUrl + "/user/connections", {

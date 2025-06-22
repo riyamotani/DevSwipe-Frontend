@@ -2,12 +2,11 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { addRequests, removeRequest } from "../utils/requestSlice.js";
 import { useEffect } from "react";
+import { baseUrl } from "../utils/constants";
 
 const Requests = () => {
   const requests = useSelector((store) => store.requests);
   const dispatch = useDispatch();
-  const baseUrl = import.meta.env.VITE_BASE_URL;
-
   const reviewRequest = async (status, _id) => {
     try {
       const res = axios.post(
